@@ -17,6 +17,17 @@ it "should initialize entries as empty" do
   expect(book.entries.size).to eq(0)
 end
   end
+  describe "#remove_entry" do
+  it "removes entry from the address book" do
+    book = AddressBook.new
+    book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+    book.add_entry('abc', '0123456789', 'abc@lovelace.com')
+    expect(book.entries.size).to eq(2)
+    book.remove_entry('abc', '0123456789', 'abc@lovelace.com')
+    expect(book.entries.size).to eq(1)
+  end
+end
+
   describe "#add_entry" do
   it "adds only one entry to the address book" do
     book = AddressBook.new
